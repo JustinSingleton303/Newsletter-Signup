@@ -27,7 +27,7 @@ body {
   font-weight: 400;
 }
 .form-signin .form-control {
-  /*color: #00f0f6;*/
+  /*color: #f0f026;*/
   position: relative;
   box-sizing: border-box;
   height: auto;
@@ -49,5 +49,5 @@ body {
 }
 
 .btn-sty{
-  color: Yellow;
+  color: #f5f506;
 }
