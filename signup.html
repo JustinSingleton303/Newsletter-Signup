@@ -19,21 +19,19 @@
   </head>
 
   <body class="text-center">
-    <form class="form-signin">
+    <form class="form-signin" action="/" name="form" method="post">
       <!--<img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
       <i class="fas fa-3x fa-horse"></i>
 
       <h1 class="h3 mb-3 font-weight-normal">Sign up for Our Newsletter!</h1>
 
-      <input type="text" id="inputFirstName" class="form-control top" placeholder="FirstName" required autofocus>
+      <input type="text" id="inputFirstName" name="firstName" class="form-control top" placeholder="FirstName" required autofocus>
 
-      <input type="text"  id="inputLastName" class="form-control middle" placeholder="LastName" required>
-      <input type="password" id="inputPassword" class="form-control bottom" placeholder="Password" required>
+      <input type="text"  id="inputLastName" name="lastName" class="form-control middle" placeholder="LastName" required>
+      <input type="email" id="inputEmail" name="email" class="form-control bottom" placeholder="Email" required>
 
-      <div class="checkbox mb-3">
 
-      </div>
-      <button class="btn btn-lg btn-sty btn-block" type="submit" method="post">Sign up</button>
+      <button class="btn btn-lg btn-sty btn-block" name="button" type="submit" >Sign up</button>
       <p class="mt-5 mb-3">
         Way of Peace Equine Haven
         </p>
