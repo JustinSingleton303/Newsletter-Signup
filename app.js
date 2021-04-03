@@ -3,6 +3,7 @@ const app = express();
 const port = 3000;
 const bodyParser = require('body-parser');
 const request = require('request');
+const https = require('https');
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -26,6 +27,10 @@ app.post('/', (req, res)=>{
     ]
   };
   const jsonData = JSON.stringify(data);
+  const url = "https://$API_SERVER.api.mailchimp.com/3.0/lists/4f2529b3c7";
+  https.request(url, options, (request)=>{
+
+  });
 });
 
 app.get('/', (req, res)=>{
