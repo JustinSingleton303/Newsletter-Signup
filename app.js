@@ -4,6 +4,7 @@ const port = 3000;
 const bodyParser = require('body-parser');
 const request = require('request');
 const https = require('https');
+const mailChimp = require("@mailchimp/mailchimp_marketing");
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -14,18 +15,24 @@ app.post('/', (req, res)=>{
   const fName = req.body.firstName;
   const lName = req.body.lastName;
   const eMail = req.body.email;
-  const data = {
-    members:[
-      {
-        email_address: eMail,
-        status: "subscribed",
-        merge_fields:{
-          FNAME: fName,
-          LNAME: lName
-        }
-      }
-    ]
+  const subscribingUser = {
+        firstName: fName,
+        lastName: lName,
+        email: eMail
+
   };
+
+  async function run(){
+    const response = await mailchimp.lists.addListMember(listID,
+    {
+      email_address: subscribingUser.email,
+      status: "subscribed",
+      merge_fields:{
+        FNAME: subscribingUser.firstName,
+        LNAME: subscribingUser.lastName
+      }
+    });
+  }
   const jsonData = JSON.stringify(data);
   const url = "https://$API_SERVER.api.mailchimp.com/3.0/lists/4f2529b3c7";
   https.request(url, options, (request)=>{
