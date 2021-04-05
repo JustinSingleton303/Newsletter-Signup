@@ -10,7 +10,7 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 mailChimp.setConfig({
-  apiKey: '13b4944c4bbc8078cd2f743eb9e049a6-us1',
+  apiKey: '',
   server: 'us1'
 });
 
@@ -55,10 +55,3 @@ app.get('/', (req, res)=>{
 app.listen(port, ()=>{
   console.log("Running on port 3000");
 });
-
-
-
-
-
-//api key 13b4944c4bbc8078cd2f743eb9e049a6-us1
-//list id 4f2529b3c7
