@@ -10,7 +10,7 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 mailChimp.setConfig({
-  apiKey: '13b4944c4bbc8078cd2f743eb9',
+  apiKey: '13b4944c4bbc8078cd2f743eb9e049a6-us1',
   server: 'us1'
 });
 
@@ -26,7 +26,7 @@ app.post('/', (req, res)=>{
   };
 
   async function run(){
-    const response = await mailchimp.lists.addListMember(listID,
+    const response = await mailChimp.lists.addListMember(listID,
     {
       email_address: subscribingUser.email,
       status: "subscribed",
@@ -34,10 +34,13 @@ app.post('/', (req, res)=>{
         FNAME: subscribingUser.firstName,
         LNAME: subscribingUser.lastName
       }
-    });
+    });res.sendFile(__dirname + "/success.html");
+    console.log(`Successfully added contact as an audience member. The contact's id is ${
+   response.id
+   }.`);
   }
-  res.sendFile(__dirname + "/success.html");
-  console.log('member add successful?');
+
+
   /*const jsonData = JSON.stringify(data);
   const url = "https://$API_SERVER.api.mailchimp.com/3.0/lists/4f2529b3c7";
   https.request(url, options, (request)=>{
@@ -55,5 +58,7 @@ app.listen(port, ()=>{
 
 
 
-//api key 13b4944c4bbc8078cd2f743eb9
+
+
+//api key 13b4944c4bbc8078cd2f743eb9e049a6-us1
 //list id 4f2529b3c7
