@@ -36,6 +36,7 @@ app.post('/', (req, res)=>{
       }
     });
   }
+  res.sendFile(__dirname + "/success.html");
   console.log('member add successful?');
   /*const jsonData = JSON.stringify(data);
   const url = "https://$API_SERVER.api.mailchimp.com/3.0/lists/4f2529b3c7";
