@@ -9,8 +9,9 @@ const listID = '4f2529b3c7';
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
+// DO NOT COMMIT WITH APIKEY POPULATED
 mailChimp.setConfig({
-  apiKey: '',
+  apiKey: 'd0d5e160956636225f2f7fc0b7a45bc5-us1',
   server: 'us1'
 });
 
