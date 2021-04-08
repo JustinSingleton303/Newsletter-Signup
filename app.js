@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // DO NOT COMMIT WITH APIKEY POPULATED
 mailChimp.setConfig({
-  apiKey: '32f7267062289b51b71dd14b8e5eddc6-us1',
+  apiKey: '',
   server: 'us1'
 });
 
