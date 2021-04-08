@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // DO NOT COMMIT WITH APIKEY POPULATED
 mailChimp.setConfig({
-  apiKey: '',
+  apiKey: '32f7267062289b51b71dd14b8e5eddc6-us1',
   server: 'us1'
 });
 
@@ -53,6 +53,6 @@ app.get('/', (req, res)=>{
   res.sendFile(__dirname + "/signup.html");
 });
 
-app.listen(port, ()=>{
+app.listen( process.env.PORT || port, ()=>{
   console.log("Running on port 3000");
 });
